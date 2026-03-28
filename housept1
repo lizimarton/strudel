@@ -1,0 +1,12 @@
+setcpm(30)
+stack(
+  note("[4(3,8)]").scale("d:minor").s("saw").lpf(150).mask("<1!2 0!4 1!4>"),
+  note("4 2 3 5, 0(3,8)").scale("d:minor").s("saw").lpf(range(10, 1000, saw.slow(10))).mask("<0!2 1!8 0!4>")._punchcard(),
+  //s("hh(3,8)").hpf(2000).lpf(6000).lpq(0).decay(0.7).gain(range(0.1, 0.2, sine.slow(8))).mask("<0!4 1!10>"),
+  s("hh(3,8)").attack(0.08).decay(0.5).sustain(0.2).lpf(4000).lpq(0).hpf(1500).gain(range(0.1, 0.25, sine.slow(4))).mask("<0!4 1!10>"),
+  s("bd*4").lpf(600).mask("<0!2 0!2 0!2 1!8>"),
+  note("4 2 3 5, 0(3,8)").scale("d:minor").s("saw").lpf(600).mask("<0!10 1!4>")._punchcard(),
+  s("bd*4").lpf(400).lpq(2).gain(0.9).mask("<0!10 1!4>"),
+  note("0(3,8) 3(2,8)").scale("d:minor").s("saw").lpf(200).gain(1.5).sustain(1).decay(0.5).legato(1).mask("<0!10 1!4>"), 
+  note("c1*4").s("sine").decay(0.25).sustain(0).gain(1.4).crush(0.6).mask("<0!10 1!4>")
+)
