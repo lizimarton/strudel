@@ -1,0 +1,36 @@
+setcpm(30)
+
+const muffle = 0
+
+$:stack(
+  note("[4(3,8)]").scale("d:minor").s("saw").lpf(150).mask("<1!2 0!4 1!8>"),
+  note("4 2 3 5, 0(3,8)").scale("d:minor").s("saw").lpf(slider(338.5, 100, 1000)).when(muffle === 0, p => p.lpf(250).lpq(0).legato(1).gain(0.7).room(0.8))._punchcard(),//.mask("<0!2 1!8 0!8>"),
+)
+$:stack(
+  note("0(3,8) 3(2,8)").scale("d:minor").s("saw").lpf(200).gain(1.5).sustain(2).decay(2).legato(2).mask("<0!10 1!8>"), 
+  note("c1*4").s("sine").decay(0.25).sustain(0).gain(1.4).crush(0.6).mask("<0!10 1!8>"),
+)
+
+
+$:stack(
+  s("rolandtr808_hh(3,8)").attack(0.08).decay(0.8).sustain(0.2).lpq(0).hpf(500).gain(range(0.1, 0.25, sine.slow(4))).mask("<0!4 1!14>"),
+  s("rolandtr808_bd*4").mask("<0!2 0!2 0!2 1!12>"),
+  s("rolandtr808_sd*4").lpf(400).lpq(2).gain(0.9).mask("<0!10 1!8>"),
+)
+
+
+
+/*
+let notea = note("[4(3,8)]").scale("d:minor").s("saw").lpf(150);
+let melodybuildup = note("4 2 3 5, 0(3,8)").scale("d:minor").s("saw").lpf(range(10, 1000, saw.slow(10)));
+let cym = s("rolandtr808_hh(3,8)").attack(0.08).decay(0.8).sustain(0.2).lpq(0).hpf(500).gain(range(0.1, 0.25, sine.slow(4)));
+let drum = s("rolandtr808_bd*4");
+let housemelody = note("4 2 3 5, 0(3,8)").scale("d:minor").s("saw").lpq(0).lpf(400).legato(1);
+let thump = s("rolandtr808_sd*4").lpf(400).lpq(2).gain(0.9);
+let bass = note("0(3,8) 3(2,8)").scale("d:minor").s("saw").lpf(200).gain(1.5).sustain(2).decay(1).legato(1);
+let bassknock =note("c1*4").s("sine").decay(0.25).sustain(0).gain(1.4).crush(0.6);
+//s("hh(3,8)").hpf(2000).lpf(6000).lpq(0).decay(0.7).gain(range(0.1, 0.2, sine.slow(8))).mask("<0!4 1!10>"),
+  //s("rolandtr808_hh(3,8)").attack(0.08).decay(0.8).sustain(0.2).lpf(4000).lpq(0).hpf(500).gain(range(0.1, 0.25, sine.slow(4))).mask("<0!4 1!10>"),
+//note("4 2 3 5, 0(3,8)").scale("d:minor").s("saw").lpq(0).lpf(400).legato(1).mask("<0!10 1!8>")._punchcard(),
+
+*/
